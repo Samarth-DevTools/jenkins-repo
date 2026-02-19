@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    tools {
+        // This name must match exactly the name you gave in Global Tool Configuration
+        nodejs 'node20' 
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
