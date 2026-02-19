@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World! The connection to GitHub is working.'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running a fake test... Success!'
+            }
+        }
+    }
+}
