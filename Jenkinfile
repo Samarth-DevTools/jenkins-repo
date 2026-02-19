@@ -2,14 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Hello World! The connection to GitHub is working.'
+                echo 'Installing npm packages...'
+                sh 'npm install'
             }
         }
-        stage('Test') {
+
+        stage('Run Tests') {
             steps {
-                echo 'Running a fake test... Success!'
+                echo 'Running unit tests...'
+                sh 'npm test'
+            }
+        }
+
+        stage('Build/Package') {
+            steps {
+                echo 'Packaging application...'
+                // This simulates a build step, like creating a zip or docker image
+                sh 'tar -czf app.tar.gz app.js package.json'
             }
         }
     }
